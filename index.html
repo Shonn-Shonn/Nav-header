@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/8bb1fbcc22.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.min.css">
+
+</head>
+<body>
+   <section class="navigation">
+       <div class="nav-container">
+           <div class="mylogo">
+               <a id="mylogo" href="#!">M O N I D O M I</a>
+           </div>
+           <nav>
+               <div class="nav-mobile">
+                   <a id="nav-toggle" href="#">
+                       <span></span>
+                   </a>
+               </div>
+
+               <ul class="nav-list">
+                   <li><a href="#">Home</a></li>
+                   <li><a href="#">Services</a></li>
+                   <li><a href="#">Materials</a></li>
+                   <li><a href="#">Feedback</a></li>
+               </ul>
+           </nav>
+       </div>
+   </section>
+   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+   <script>
+      (function($) {
+  $(function() {
+    $('nav ul li > a:not(:only-child)').click(function(e) {
+      $(this)
+        .siblings('.nav-dropdown')
+        .slideToggle()
+      $('.nav-dropdown')
+        .not($(this).siblings())
+        .hide()
+      e.stopPropagation()
+    })
+    $('html').click(function() {
+      $('.nav-dropdown').hide()
+    })
+    // Toggle open and close nav styles on click
+    $('#nav-toggle').click(function() {
+      $('nav ul').slideToggle();
+    });
+    $('#nav-toggle').on('click', function() {
+      this.classList.toggle('active')
+    })
+  })
+})(jQuery)
+   </script>
+</body>
+</html>
